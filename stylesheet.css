@@ -3,3 +3,28 @@
 * {
 	background-color: #f0f0ff;
 }
+
+button {
+	margin-bottom: 20px;
+}
+
+ul {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border:  0px 0px 0px 0px;
+    display: table;
+}
+
+li {
+    padding: 0px 0px 0px 0px;
+    border: 1px solid black;
+    margin: 0px 0px 0px 0px;  
+    display: table-cell;
+    background-color: white;
+    height: 50px; width: 50px;
+}
+
+.highlighted {
+	background-color: yellow;
+}
+
