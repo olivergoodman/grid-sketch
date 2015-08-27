@@ -2,7 +2,8 @@
 
 $(document).ready(function(){
 	$('body').append('<div class="container"></div>');
-	$('.container').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
+	$('body').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
+	$('body').prepend('<p>Sketch Pad</p>');
 	
 });
 
@@ -11,25 +12,22 @@ function makeGrid(){
 	//remove and add the container/button again
 	$('.container').remove()
   	$('body').append('<div class="container"></div>')
-  	$('.container').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
 
 	var x = prompt("How wide/tall do you want your grid?");
-	for(var i = 0; i < x; i++){
-		$('.container').append('<ul></ul>');
-	}
-	for (var j = 0; j < x; j++){
-		$('ul').append('<li></li>');
+	
+	while (x > 0) { 
+		  $(".container").append("<div></div>");
+		  $(".container div").css({
+	      "display": "inline-block",
+	      "width": squareSize + "px",
+	      "height": squareSize + "px",
+	      "background-color": "red",
+	      "border-left": "1px solid black",
+	      "border-bottom": "1px solid black",
+	  });
+		  x--;
+	}; //fix grid: add div elements instead of ul/li squares. 
 
-	}
-
-	var width = $(window).width(); //use this to get window width
-	var height = $(window).height(); //window height
-	console.log('window width is ' + width);
-	console.log('window height is ' + height);
-	var new_dimension = width/x;
-	console.log('new dimension of squares is ' + new_dimension);
-
-	$('ul').css({'width': new_dimension});
 
 	//drawing
 	$('li').on('mouseenter', function(){
