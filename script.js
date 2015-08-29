@@ -7,35 +7,37 @@ $(document).ready(function(){
 	
 });
 
-//makes a square grid; size from user input
+//makes a square grid; size from user input 
+
 function makeGrid(){
-	//remove and add the container/button again
-	$('.container').remove()
-  	$('body').append('<div class="container"></div>')
+	$('.container').remove();
+  	$('body').append('<div class="container"></div>');
 
 	var x = prompt("How wide/tall do you want your grid?");
+	var num_squares = Math.pow(x, 2);
+	var square_width = $('.container').width()/x;
+	var square_height = $('.container').height()/x;
+	console.log('square width is '+ square_width + ' and square height is '+ square_height);
 	
-	while (x > 0) { 
-		  $(".container").append("<div></div>");
-		  $(".container div").css({
-	      "display": "inline-block",
-	      "width": squareSize + "px",
-	      "height": squareSize + "px",
-	      "background-color": "red",
-	      "border-left": "1px solid black",
-	      "border-bottom": "1px solid black",
-	  });
-		  x--;
-	}; //fix grid: add div elements instead of ul/li squares. 
-
+	for (var i = 0; i < num_squares; i++) { 
+		$(".container").append('<div></div>');
+		console.log('square made');
+	}
+	$('.container div').css({
+			'width': + square_width + 'px',
+			'height': + square_height + 'px',
+			'display': 'inline-block',
+			'background-color': 'blue;',
+			'margin-bottom': 'none',
+			'padding': 'none'
+		});
 
 	//drawing
-	$('li').on('mouseenter', function(){
+	$('.container div').on('mouseenter', function(){
 		$(this).addClass('highlighted');
 	});
-}
+} 
 
 
-//NOTE: to make each square relative size, divide window width/height by number of squares
 
  

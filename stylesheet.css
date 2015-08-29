@@ -1,36 +1,22 @@
 /* Styling for grid-sketch */
 
-* {
+body {
 	background-color: #f0f0ff;
+	text-align: center;
 }
-
 
 button {
 	margin-bottom: 20px;
 }
 
 .container {
-	text-align: center;
-	width: 500px;
-	height: 500px;
+	position: relative;
+	margin: 0 auto;
+	width: 750px;
+	height: 750px;
 	background-color: white;
-}
-
-ul {
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    border:  0px 0px 0px 0px;
-    display: table;
-
-}
-
-li {
-    padding: 0px 0px 0px 0px;
-    border: 1px solid black;
-    margin: 0px 0px 0px 0px;  
-    display: table-cell;
-    background-color: white;
-    height: 50px; width: 50px;
+	border: 1px solid black;
+	line-height: 0%;
 }
 
 .highlighted {
