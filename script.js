@@ -1,35 +1,43 @@
 //script for grid-sketch
-var width = $(window).width(); //use this to get window width
-var height = $(window).height(); //window height
-
-console.log('width is ' + width);
-console.log('height is ' + height);
 
 $(document).ready(function(){
 	$('body').append('<div class="container"></div>');
-	$('.container').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
+	$('body').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
+	$('body').prepend('<p>Sketch Pad</p>');
 	
 });
 
-//makes a square grid; size from user input
+//makes a square grid; size from user input 
+
 function makeGrid(){
-	//remove and add the container/button again
-	$('.container').remove()
-  	$('body').append('<div class="container"></div>')
-  	$('.container').prepend('<button onclick="makeGrid(); return false">New Grid</button>');
+	$('.container').remove();
+  	$('body').append('<div class="container"></div>');
 
 	var x = prompt("How wide/tall do you want your grid?");
-	for(var i = 0; i < x; i++){
-		$('.container').append('<ul></ul>');
+	var num_squares = Math.pow(x, 2);
+	var square_width = $('.container').width()/x;
+	var square_height = $('.container').height()/x;
+	console.log('square width is '+ square_width + ' and square height is '+ square_height);
+	
+	for (var i = 0; i < num_squares; i++) { 
+		$(".container").append('<div></div>');
+		console.log('square made');
 	}
-	for (var j = 0; j < x; j++){
-		$('ul').append('<li></li>');
-	}
+	$('.container div').css({
+			'width': + square_width + 'px',
+			'height': + square_height + 'px',
+			'display': 'inline-block',
+			'background-color': 'blue;',
+			'margin-bottom': 'none',
+			'padding': 'none'
+		});
 
 	//drawing
-	$('li').on('mouseenter', function(){
+	$('.container div').on('mouseenter', function(){
 		$(this).addClass('highlighted');
 	});
-}
+} 
+
+
 
  
